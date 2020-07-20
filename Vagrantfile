@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = '2'.freeze
 
 # workaround for dhcp issue: https://github.com/hashicorp/vagrant/issues/11403
 class VagrantPlugins::ProviderVirtualBox::Action::Network
-  def dhcp_server_matches_config?(dhcp_server, config)
+  def dhcp_server_matches_config?(_, _)
     true
   end
 end
@@ -49,8 +49,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     virtualbox.cache.scope = :machine if Vagrant.has_plugin?('vagrant-cachier')
 
     virtualbox.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+      vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
       vb.cpus = 2
       vb.memory = 1024
     end

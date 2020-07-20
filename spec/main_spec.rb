@@ -1,10 +1,10 @@
-require "main"
-require "chart_url_table"
+require 'main'
+require 'chart_url_table'
 
 RSpec.describe Main do
-  let(:chart_url_table) {ChartUrlTable.new}
+  let(:chart_url_table) { ChartUrlTable.new }
 
-  it "prints chart_url_table output" do
+  it 'prints chart_url_table output' do
     output = StringIO.new
     main = Main.new(output)
 

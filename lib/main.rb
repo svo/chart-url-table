@@ -1,4 +1,4 @@
-require "chart_url_table"
+require 'chart_url_table'
 
 class Main
   def initialize(output)
