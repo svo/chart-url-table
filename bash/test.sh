@@ -4,4 +4,4 @@ ruby --version &&
 
 bundle install &&
 
-bundle exec rspec
+rake
