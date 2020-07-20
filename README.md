@@ -4,10 +4,18 @@
 
 [![Run Status](https://api.shippable.com/projects/5f1568b83660230007857b52/badge?branch=master)]()
 
-## Decisions
+https://app.shippable.com/github/svo/chart-url-table/dashboard
+
+## Solution Design
+
+### Decisions
 
 * using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace implementation
 * command line interface is sufficient
+
+### Activity
+
+![Activity UML](docs/activity.png)
 
 ## Development
 

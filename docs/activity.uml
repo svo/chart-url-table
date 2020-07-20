@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+(*) --> "Parse HTML"
+if "Has Table?" then
+  -->[true] if "Has numeric column?" then
+    -->[true] "Chart column values"
+    -> "Report path of image"
+    -down-> (*)
+  else
+    ->[false] "Report no numeric column"
+    -down-> (*)
+  endif
+else
+  ->[false] "Report no table"
+  -down-> (*)
+endif
+@enduml
