@@ -1,5 +1,9 @@
 # Chart URL Table
 
+## Continuous Integration
+
+[![Run Status](https://api.shippable.com/projects/5f1568b83660230007857b52/badge?branch=master)]()
+
 ## Decisions
 
 * using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace implementation
