@@ -7,6 +7,7 @@
 ## Decisions
 
 * using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace implementation
+* command line interface is sufficient
 
 ## Development
 

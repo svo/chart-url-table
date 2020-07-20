@@ -1,3 +1,7 @@
 #!/bin/bash
 
-ruby --version
+ruby --version &&
+
+bundle install &&
+
+bundle exec rspec
