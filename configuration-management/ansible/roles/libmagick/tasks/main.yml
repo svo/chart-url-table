@@ -1,3 +1,7 @@
 - name: Install libmagick++-dev for RMagick gem
   apt: pkg=libmagick++-dev
   become: yes
+
+- name: Install gsfonts for RMagick gem
+  apt: pkg=gsfonts
+  become: yes
