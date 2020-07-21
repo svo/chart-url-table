@@ -19,6 +19,7 @@
     - docker
     - packer
     - ruby
+    - libmagick
 
   post_tasks:
     - name: Add docker group for user

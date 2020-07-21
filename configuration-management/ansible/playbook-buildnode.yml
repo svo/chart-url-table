@@ -8,6 +8,7 @@
     - docker
     - packer
     - ruby
+    - libmagick
 
   post_tasks:
     - name: Set python3 as default python

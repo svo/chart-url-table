@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'gruff', '0.10.0'
 gem 'httparty', '0.18.1'
 gem 'nokogiri', '1.10.10'
 gem 'rake', '13.0.1'

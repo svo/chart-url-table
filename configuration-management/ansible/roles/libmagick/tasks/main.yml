@@ -1,0 +1,3 @@
+- name: Install libmagick++-dev for RMagick gem
+  apt: pkg=libmagick++-dev
+  become: yes
