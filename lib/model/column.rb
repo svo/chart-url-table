@@ -2,22 +2,16 @@ require 'set'
 
 class Column
   def initialize(values)
-    @values_array = values
+    @values_array = values.map { |string| string.split.first }
   end
 
   def numeric?
-    @values_array.all? { |value| value.is_a? Numeric or numeric_strings?(value.split.first) }
+    @values_array.all? { |value| numeric_strings?(value) }
   end
 
   def values
     @values_array.map do |value|
-      if value.is_a? Numeric
-        value
-      elsif numeric_strings?(value.split.first)
-        Float(value.split.first)
-      else
-        raise 'bob'
-      end
+      Float(value) if numeric_strings?(value)
     end
   end
 
