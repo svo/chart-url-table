@@ -1,9 +1,13 @@
 require 'chart_url_table'
 
 RSpec.describe ChartUrlTable do
-  let(:chart_url_table) { described_class.new }
+  it 'should process url' do
+    parser = double
+    column = double
+    columns = [column]
 
-  it 'should have a lovely bunch of coconuts' do
-    expect(chart_url_table.coconuts).to eq('lovely bunch of coconuts')
+    allow(parser).to receive(:columns).and_return(columns)
+
+    described_class.new(parser)
   end
 end
