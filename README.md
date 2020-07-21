@@ -10,15 +10,32 @@ https://app.shippable.com/github/svo/chart-url-table/dashboard
 
 ### Decisions
 
-* using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace implementation
+* using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace open source project
 * command line interface is sufficient
 * if more than one table in the document it will just use the first
-* if more than one column in the table it will just use the first
-* column values are expected to be consistent i.e. either all quoted or unquoted
+* if more than one numeric column in the table it will just use the first
+* column values are expected to be consistent
+* column values considered numeric if they begin with a number consistently
 
 ### Activity
 
 ![Activity UML](docs/activity.png)
+
+## Running Application
+
+#### Using Vagrant
+
+```
+vagrant ssh [docker | virtualbox]
+cd /vagrant
+./bash/run.sh
+```
+
+#### Using Docker Build Image
+
+```
+./run.sh
+```
 
 ## Development
 
