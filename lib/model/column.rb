@@ -22,7 +22,7 @@ class Column
   private
 
   def numeric_strings?(value)
-    !Float(value).nil?
+    !Float(value).nil? unless value.nil?
   rescue ArgumentError
     false
   end

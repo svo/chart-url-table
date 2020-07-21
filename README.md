@@ -15,6 +15,7 @@ https://app.shippable.com/github/svo/chart-url-table/dashboard
 * if more than one table in the document it will just use the first
 * if more than one numeric column in the table it will just use the first
 * column considered numeric if values begin with a number consistently
+* not building a 'production' docker image due to time constraints
 
 ### Activity
 

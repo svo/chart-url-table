@@ -5,6 +5,10 @@ RSpec.describe Column do
     expect(described_class.new(%w[1 2 coconuts]).numeric?).to eq(false)
   end
 
+  it 'should report as not numeric column if mix of numbers and strings' do
+    expect(described_class.new(['1', '2', ' ']).numeric?).to eq(false)
+  end
+
   it 'should report as numeric column if all number strings' do
     expect(described_class.new(%w[1 2 3]).numeric?).to eq(true)
   end
