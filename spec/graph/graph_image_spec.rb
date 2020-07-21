@@ -1,7 +1,7 @@
 require 'graph/graph_image'
 
 RSpec.describe GraphImage do
-  it 'converts arrays into columns' do
+  it 'should create a chart' do
     column = double
     values = double
     grapher = double

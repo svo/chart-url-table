@@ -21,7 +21,7 @@ RSpec.describe Main do
     Open result.png
   TABLE
 
-  it 'prints output' do
+  it 'should process application request' do
     output = StringIO.new
     main = Main.new(output, REQUEST_URL)
 

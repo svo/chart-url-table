@@ -1,7 +1,7 @@
 require 'model/table'
 
 RSpec.describe Table do
-  context 'creating' do
+  context 'being created' do
     it 'converts arrays into columns' do
       first_column = %w[1 3]
       second_column = %w[2 4]
@@ -11,8 +11,8 @@ RSpec.describe Table do
     end
   end
 
-  context 'finding numeric column' do
-    it 'returns first one' do
+  context 'when asked for numeric column' do
+    it 'returns the first one' do
       first_column = %w[bob 3]
       second_column = %w[2 4]
       expected = Column.new(second_column)
@@ -20,7 +20,7 @@ RSpec.describe Table do
       expect(described_class.new([first_column, second_column]).first_numeric_column).to eq(expected)
     end
 
-    it 'should raise error if none' do
+    it 'should raise error if none found' do
       first_column = %w[bob 3]
       second_column = %w[2 test]
 
