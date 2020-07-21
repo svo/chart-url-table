@@ -1,6 +1,6 @@
+require 'httparty'
 require 'net/http'
 require 'nokogiri'
-require 'httparty'
 
 class HtmlParser
   def initialize(uri)
@@ -19,7 +19,11 @@ class HtmlParser
   end
 
   def rows
-    table.search('tr').map { |row| row.search('td').map(&:text) }
+    table.search('tr').map do |row|
+      row.search('td').map do |cell|
+        cell.text.gsub(/[[:space:]]/, ' ')
+      end
+    end.keep_if(&:any?)
   end
 
   def columns

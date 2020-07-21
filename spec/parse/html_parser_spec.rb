@@ -8,7 +8,8 @@ RSpec.describe HtmlParser do
   SUCCESS_BODY = <<-HTML.freeze
     <html>
       <table id="#{ID_FIRST_TABLE}">
-        <tr><td>1</td><td>2</td></tr>
+        <tr><th>coconuts</th><th>bob</th></tr>
+        <tr><td>1&nbsp;test</td><td>2</td></tr>
         <tr><td>3</td><td>4</td></tr>
       </table>
       <table id="bob">
@@ -33,11 +34,11 @@ RSpec.describe HtmlParser do
       end
 
       it 'should get rows from table' do
-        expect(@html_parser.rows).to match_array([%w[1 2], %w[3 4]])
+        expect(@html_parser.rows).to match_array([['1 test', '2'], %w[3 4]])
       end
 
       it 'should get columns from table' do
-        expect(@html_parser.columns).to match_array([%w[1 3], %w[2 4]])
+        expect(@html_parser.columns).to match_array([['1 test', '3'], %w[2 4]])
       end
     end
 
