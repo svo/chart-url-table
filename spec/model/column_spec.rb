@@ -12,4 +12,12 @@ RSpec.describe Column do
   it 'should report as no values as num' do
     expect(described_class.new(%w[1 2 3]).numeric?).to eq(true)
   end
+
+  it 'should report as equal' do
+    expect(described_class.new(%w[1 2 3])).to eq(described_class.new(%w[1 2 3]))
+  end
+
+  it 'should not report as equal' do
+    expect(described_class.new(%w[1 2 3])).not_to eq(described_class.new(%w[2 3]))
+  end
 end
