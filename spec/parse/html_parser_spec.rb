@@ -5,7 +5,7 @@ RSpec.describe HtmlParser do
   DOMAIN = 'coconuts.com'.freeze
   URL = "http://#{DOMAIN}/".freeze
   ID_FIRST_TABLE = 'coconuts'.freeze
-  BODY = <<-HTML.freeze
+  SUCCESS_BODY = <<-HTML.freeze
     <html>
       <table id="#{ID_FIRST_TABLE}">
         <tr><td>1</td><td>2</td></tr>
@@ -16,22 +16,40 @@ RSpec.describe HtmlParser do
     </html>
   HTML
 
+  NO_TABLE_BODY = <<-HTML.freeze
+    <html>
+    </html>
+  HTML
+
   context 'successful request' do
-    before(:each) do
-      stub_request(:get, DOMAIN).to_return(body: BODY)
-      @html_parser = described_class.new(URL)
+    context 'hast table' do
+      before(:each) do
+        stub_request(:get, DOMAIN).to_return(body: SUCCESS_BODY)
+        @html_parser = described_class.new(URL)
+      end
+
+      it 'should get first table from body' do
+        expect(@html_parser.table.attr('id')).to eq(ID_FIRST_TABLE)
+      end
+
+      it 'should get rows from table' do
+        expect(@html_parser.rows).to match_array([%w[1 2], %w[3 4]])
+      end
+
+      it 'should get columns from table' do
+        expect(@html_parser.columns).to match_array([%w[1 3], %w[2 4]])
+      end
     end
 
-    it 'should get first table from body' do
-      expect(@html_parser.table.attr('id')).to eq(ID_FIRST_TABLE)
-    end
+    context 'no table' do
+      before(:each) do
+        stub_request(:get, DOMAIN).to_return(body: NO_TABLE_BODY)
+        @html_parser = described_class.new(URL)
+      end
 
-    it 'should get rows from table' do
-      expect(@html_parser.rows).to match_array([%w[1 2], %w[3 4]])
-    end
-
-    it 'should get columns from table' do
-      expect(@html_parser.columns).to match_array([%w[1 3], %w[2 4]])
+      it 'should raise error' do
+        expect { @html_parser.table }.to raise_error("No table on #{URL}")
+      end
     end
   end
 
