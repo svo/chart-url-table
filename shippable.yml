@@ -3,7 +3,13 @@ language: ruby
 rvm:
   - 2.6.2
 
+pre_ci_boot:
+  image_name: drydock/u16ruball
+  image_tag: latest
+
 build:
   ci:
+    - apt-get update
+    - apt-get install libmagick++-dev
     - gem install bundler:2.1.4
     - ./bash/test.sh
