@@ -29,6 +29,10 @@ RSpec.describe HtmlParser do
     it 'should get rows from table' do
       expect(@html_parser.rows).to match_array([%w[1 2], %w[3 4]])
     end
+
+    it 'should get columns from table' do
+      expect(@html_parser.columns).to match_array([%w[1 3], %w[2 4]])
+    end
   end
 
   context 'unsuccessful request' do

@@ -15,4 +15,8 @@ class HtmlParser
   def rows
     table.search('tr').map { |row| row.search('td').map(&:text) }
   end
+
+  def columns
+    rows.transpose
+  end
 end
