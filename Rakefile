@@ -5,8 +5,8 @@ RSpec::Core::RakeTask.new(:spec)
 RuboCop::RakeTask.new
 
 desc 'Run application'
-task :run do
-  system('./bin/chart-url-table')
+task :run, [:url] do |_, args|
+  system("./bin/chart-url-table #{args[:url]}")
 end
 
 task default: %i[rubocop spec]

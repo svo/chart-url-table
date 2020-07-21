@@ -14,8 +14,7 @@ https://app.shippable.com/github/svo/chart-url-table/dashboard
 * command line interface is sufficient
 * if more than one table in the document it will just use the first
 * if more than one numeric column in the table it will just use the first
-* column values are expected to be consistent
-* column values considered numeric if they begin with a number consistently
+* column considered numeric if values begin with a number consistently
 
 ### Activity
 
@@ -25,17 +24,25 @@ https://app.shippable.com/github/svo/chart-url-table/dashboard
 
 #### Using Vagrant
 
+e.g.
+
 ```
 vagrant ssh [docker | virtualbox]
 cd /vagrant
-./bash/run.sh
+./bash/run.sh https://en.wikipedia.org/wiki/Men%27s_high_jump_world_record_progression
 ```
+
+Uses 'https://en.wikipedia.org/wiki/Women%27s_high_jump_world_record_progression' as URL by default.
 
 #### Using Docker Build Image
 
+e.g.
+
 ```
-./run.sh
+./run.sh https://en.wikipedia.org/wiki/Men%27s_high_jump_world_record_progression
 ```
+
+Uses 'https://en.wikipedia.org/wiki/Women%27s_high_jump_world_record_progression' as URL by default.
 
 ## Development
 
