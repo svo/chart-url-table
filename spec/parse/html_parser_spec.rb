@@ -4,7 +4,8 @@ require 'webmock/rspec'
 RSpec.describe HtmlParser do
   DOMAIN = 'coconuts.com'.freeze
   URL = "http://#{DOMAIN}/".freeze
-  BODY = '<html></html>'.freeze
+  ID_FIRST_TABLE = 'coconuts'.freeze
+  BODY = "<html><table id=\"#{ID_FIRST_TABLE}\"></table><table id=\"bob\"></table></html>".freeze
 
   context 'successful request' do
     before(:each) do
@@ -12,8 +13,8 @@ RSpec.describe HtmlParser do
       @html_parser = described_class.new(URL)
     end
 
-    it 'should have expected body' do
-      expect(@html_parser.response.body).to eq(BODY)
+    it 'should get first table from body' do
+      expect(@html_parser.table.attr('id')).to eq(ID_FIRST_TABLE)
     end
   end
 
