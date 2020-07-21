@@ -13,6 +13,8 @@ https://app.shippable.com/github/svo/chart-url-table/dashboard
 * using ruby as wanting to build familiarity to aid feasibility analysis on a marketplace implementation
 * command line interface is sufficient
 * if more than one table in the document it will just use the first
+* if more than one column in the table it will just use the first
+* column values are expected to be consistent i.e. either all quoted or unquoted
 
 ### Activity
 
