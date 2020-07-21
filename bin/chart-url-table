@@ -3,4 +3,4 @@ $LOAD_PATH.unshift(File.expand_path(File.join('..', 'lib'), __dir__))
 
 require 'main'
 
-Main.new($stdout).run
+Main.new($stdout, 'https://en.wikipedia.org/wiki/Women%27s_high_jump_world_record_progression').run

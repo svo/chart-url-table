@@ -1,12 +1,14 @@
 require 'chart_url_table'
+require 'parse/html_parser'
 
 class Main
-  def initialize(output)
+  def initialize(output, url)
     @output = output
+    @url = url
   end
 
   def run
-    output.puts(chart_url_table.coconuts)
+    output.puts(chart_url_table.create)
   end
 
   private
@@ -14,6 +16,10 @@ class Main
   attr_reader :output
 
   def chart_url_table
-    @chart_url_table ||= ChartUrlTable.new
+    @chart_url_table ||= ChartUrlTable.new(parser)
+  end
+
+  def parser
+    @parser ||= HtmlParser.new(@url)
   end
 end
