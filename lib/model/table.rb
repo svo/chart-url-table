@@ -1,3 +1,5 @@
+require 'model/column'
+
 class Table
   attr_reader :columns
 
