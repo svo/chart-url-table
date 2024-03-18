@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'gruff', '0.10.0'
 gem 'httparty', '0.18.1'
-gem 'nokogiri', '1.10.10'
+gem 'nokogiri', '1.15.6'
 gem 'rake', '13.0.1'
 gem 'rspec', '3.9.0'
 gem 'rspec_junit_formatter', '0.4.1'
